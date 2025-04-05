@@ -33,6 +33,15 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className={styles.gap}>
+      </div>
+      <div className ={styles.experiences} id="experiences">
+        <div className={styles.headerBoard}>
+          <div className={styles.experienceTitle}>
+            Experiences
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
