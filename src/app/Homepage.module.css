@@ -151,6 +151,9 @@
     text-align: center;
 }
 
+.timeline {
+    margin-top: 7vh;
+}
 
 /* Animation for flying in from the right */
 @keyframes flyInFromTop {

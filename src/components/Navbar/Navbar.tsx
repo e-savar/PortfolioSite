@@ -28,8 +28,8 @@ export const Navbar: React.FC = () => {
     <nav className={styles.navbar}>
       <div className={styles.navItems}>
         <Item text="Home" route="/" />
-        <Item text="Experiences" route="#experiences" />
         <Item text="Education" route="#education" />
+        <Item text="Experiences" route="#experiences" />
         <Item text="Projects" route="#projects" />
       </div>
     </nav>
