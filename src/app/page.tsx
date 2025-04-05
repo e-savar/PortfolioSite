@@ -18,17 +18,15 @@ export default function Home() {
             Hi, my name is Ethan
           </div>
           <div className={styles.buttons}>
-            <button className={styles.cvButton}>
-              <a href="Savar_Ethan_Resume (14).pdf" download="EthanSavarResume.pdf">
-                Download CV
-              </a>
-            </button>
-            <button className={styles.linkedinButton}>
-              <a href="https://www.linkedin.com/in/ethan-savar/" target="_blank" rel="noopener noreferrer">
-                Linkedin
-              </a>
-            </button>
-            <button className={styles.githubButton}>GitHub</button>
+            <a href="Savar_Ethan_Resume (14).pdf" download="EthanSavarResume.pdf" className={styles.cvButton}>
+              Download CV
+            </a>
+            <a href="https://www.linkedin.com/in/ethan-savar/" target="_blank" rel="noopener noreferrer" className={styles.linkedinButton}>
+              LinkedIn
+            </a>
+            <a href="https://github.com/e-savar" target="_blank" rel="noopener noreferrer" className={styles.githubButton}>
+              Github
+            </a>
           </div>
         </div>
       </div>
