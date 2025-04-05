@@ -1,0 +1,147 @@
+/* General Styles */
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15vh;
+    margin-left: 4vw;
+    margin-right: 7vw;
+    height: 50vh;
+}
+
+.bottom {
+    animation: flyInFromTop 1s ease-out; /* Animation for flying in from the left */
+}
+
+.aboutMe {
+    height: 5vh;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    border: 7px solid #363636;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: #fdfdfd;
+    border-radius: 13px;
+    justify-content: space-between;
+    padding-top: 1%;
+    padding-bottom: 3%;
+    width: auto;
+    animation: bounce 2s ease-in-out infinite; /* Animation for up and down hover effect */
+    
+}
+.aboutMeTitle {
+    color: #363636;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+.face {
+    flex: 0.8;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: flyInFromTop 1s ease-out; /* Animation for flying in from the left */
+}
+
+.faceImage {
+    border-radius: 100%;
+    border: 7px solid #363636;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    animation: bounce 2s ease-in-out infinite; /* Animation for up and down hover effect */
+}
+
+.buttonsGreeting {
+    flex: 1.2;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    animation: flyInFromTop 1s ease-out; /* Animation for flying in from the right */
+}
+
+.greeting {
+    border: 7px solid #363636;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: #fdfdfd;
+    color: #363636;
+    font-size: 3.2rem;
+    font-weight: 700;
+    border-radius: 13px;
+    padding: 7% 7% 7% 7%;
+    animation: bounce 2s ease-in-out infinite; /* Animation for up and down hover effect */
+
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2vw;
+    width: 100%;
+    animation: bounce 2s ease-in-out infinite; /* Animation for up and down hover effect */
+}
+
+.cvButton,
+.linkedinButton,
+.githubButton {
+    color: #fdfdfd;
+    font-size: 1.7rem;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 1% 1.1% 1% 1.1%;
+    margin-top: 3vh;
+    border: 7px solid;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: #363636;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.cvButton {
+    background-color: #363636;
+    border-color: #363636;
+    flex-grow: 1.5;
+}
+
+.linkedinButton {
+    background-color: #0077b5;
+    border-color: #0077b5;
+    flex-grow: 1;
+}
+
+.githubButton {
+    background-color: #171515;
+    border-color: #171515;
+    flex-grow: 1;
+}
+
+/* Hover effect for buttons */
+.cvButton:hover, .linkedinButton:hover, .githubButton:hover {
+    transform: translateY(-5px); /* Button lifts when hovered */
+}
+
+
+/* Animation for flying in from the right */
+@keyframes flyInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bounce animation for up and down hovering effect */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px); /* Move up */
+    }
+}
