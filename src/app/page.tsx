@@ -18,9 +18,15 @@ export default function Home() {
             Hi, my name is Ethan
           </div>
           <div className={styles.buttons}>
-            <button className={styles.cvButton}>Download CV</button>
+            <button className={styles.cvButton}>
+              <a href="Savar_Ethan_Resume (14).pdf" download="EthanSavarResume.pdf">
+                Download CV
+              </a>
+            </button>
             <button className={styles.linkedinButton}>
-              Linkedin
+              <a href="https://www.linkedin.com/in/ethan-savar/" target="_blank" rel="noopener noreferrer">
+                Linkedin
+              </a>
             </button>
             <button className={styles.githubButton}>GitHub</button>
           </div>
