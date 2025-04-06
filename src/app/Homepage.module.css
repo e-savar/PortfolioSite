@@ -22,8 +22,8 @@
     background-color: #fdfdfd;
     border-radius: 13px;
     justify-content: space-between;
-    padding-top: 2%;
-    padding-bottom: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
     width: auto;
     animation: bounce 2s ease-in-out infinite; /* Animation for up and down hover effect */
     word-wrap: break-word; /* Ensure text wraps properly inside the container */
@@ -34,8 +34,9 @@
     color: #363636;
     font-size: 1.5rem;
     font-weight: 700;
+    padding-left: 2%;
+    padding-right: 2%;
     text-align: center;
-    padding: 0 2px;  /* Add some padding to prevent text from touching the edges */
     overflow-wrap: break-word;  /* Ensure long words or links break and wrap */
     word-wrap: break-word; /* Break long words */
 }
