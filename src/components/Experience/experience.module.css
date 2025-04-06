@@ -35,12 +35,14 @@ line-height: 1.5;
 }
 
 .timeline {
-position: relative;
-width: 40px;
-display: flex;
-justify-content: center;
-align-items: flex-start;
-margin-left: 1rem;
+    position: relative;
+    width: 40px;
+    display: flex;
+    flex-direction: column; /* Ensure stacking vertically */
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 1rem;
+    height: 100%; /* Ensure it takes up full height of card */
 }
 
 .circle {
@@ -51,17 +53,4 @@ border: 5px solid #363636;
 background-color: #fff;
 position: relative;
 top: 0;
-}
-
-.line {
-width: 3px;
-background: repeating-linear-gradient(
-    to bottom,
-    #363636,
-    #363636 6px,
-    transparent 6px,
-    transparent 12px
-);
-flex-grow: 1;
-margin-top: 2px;
 }

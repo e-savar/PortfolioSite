@@ -141,7 +141,6 @@
     padding: 1ch 1vw;
     margin-left: 35vw;
     margin-right: 35vw;
-    animation: bounce 2s ease-in-out infinite; /* Animation for up and down hover effect */
 }
 
 .experienceTitle {

@@ -12,8 +12,23 @@ interface ItemProps {
 const Item: React.FC<ItemProps> = ({ text, route }) => {
   const router = useRouter();
 
-  const handleClick = () => {
-    router.push(route);
+  const handleClick = (event: React.MouseEvent) => {
+    event.preventDefault(); // Prevent default anchor link behavior
+
+    // Check if the route is the Home route
+    if (route === '/') {
+      // Scroll to the top of the page for Home
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // Get the element corresponding to the route (for sections)
+      const section = document.querySelector(route);
+      if (section) {
+        section.scrollIntoView({
+          behavior: 'smooth', // Smooth scroll
+          block: 'start', // Scroll to the top of the section
+        });
+      }
+    }
   };
 
   return (

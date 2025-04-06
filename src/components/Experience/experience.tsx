@@ -25,7 +25,6 @@ export const Experience: React.FC<ExperienceProps> = ({ company, title, dates, d
       </div>
       <div className={styles.timeline}>
         <div className={styles.circle}></div>
-        <div className={styles.line}></div>
       </div>
     </div>
   );
