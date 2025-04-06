@@ -40,6 +40,23 @@ export default function Home() {
       </div>
       <div className={styles.gap}>
       </div>
+      <div className ={styles.experiences} id="education">
+        <div className={styles.headerBoard}>
+          <div className={styles.experienceTitle}>
+            Education
+          </div>
+        </div>
+        <div className={styles.timeline}>
+          <Experience
+              company="The Ohio State University"
+              title="Honors Bachelor of Science"
+              dates="August 2022 - May 2026"
+              descriptions={["Major: Computer Science Engineering", "Double Major: Mathematics"]}
+            />
+        </div>
+      </div>
+      <div className={styles.gap}>
+      </div>
       <div className ={styles.experiences} id="experiences">
         <div className={styles.headerBoard}>
           <div className={styles.experienceTitle}>
@@ -97,6 +114,8 @@ export default function Home() {
           
 
         </div>
+      </div>
+      <div className={styles.gap}>
       </div>
     </div>
   );

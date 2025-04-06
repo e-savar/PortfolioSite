@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import React from 'react';
 import styles from './Navbar.module.css';
 
@@ -10,8 +9,6 @@ interface ItemProps {
 }
 
 const Item: React.FC<ItemProps> = ({ text, route }) => {
-  const router = useRouter();
-
   const handleClick = (event: React.MouseEvent) => {
     event.preventDefault(); // Prevent default anchor link behavior
 
@@ -23,9 +20,12 @@ const Item: React.FC<ItemProps> = ({ text, route }) => {
       // Get the element corresponding to the route (for sections)
       const section = document.querySelector(route);
       if (section) {
-        section.scrollIntoView({
+        const navbarHeight = document.querySelector('nav')?.clientHeight || 0;
+        const targetPosition = section.getBoundingClientRect().top + window.scrollY - navbarHeight - 40;
+
+        window.scrollTo({
+          top: targetPosition,
           behavior: 'smooth', // Smooth scroll
-          block: 'start', // Scroll to the top of the section
         });
       }
     }
