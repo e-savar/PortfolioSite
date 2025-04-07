@@ -82,11 +82,11 @@ export const Book: React.FC = () => {
     // position based on direction
     let position = 0;
     if (direction === 'right') {
-      position = 180;
+      position = 225;
     } else if (direction === 'left') {
       position = 0;
     } else if (direction === 'center') {
-      position = 400;
+      position = 450;
     }
     
     setBookPosition(position);
