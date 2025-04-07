@@ -103,7 +103,7 @@ export default function EducationDesk() {
                 left: isActive ? '50%' : paper.left,
                 transform: isActive
                   ? 'translate(-50%, -50%) scale(1.3)'
-                  : `rotate(${paper.rotate})`,
+                  : '',
                 zIndex: isActive ? 100 : 1,
                 fontWeight: isActive ? '400' : '600',
               }}

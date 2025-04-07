@@ -43,7 +43,6 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  transform: rotateX(2deg) rotateZ(-5deg);
   background-image: linear-gradient(to bottom, #f0f0f0 10%, #fff 10%, #fff 90%, #f0f0f0 90%);
   background-size: 100% 10px;
   background-repeat: repeat-y;
@@ -71,8 +70,8 @@
 }
 
 .paperItem:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 6px 8px 16px rgba(0, 0, 0, 0.25);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 16px 18px 26px rgba(0, 0, 0, 0.35);
   z-index: 5;
 }
 
