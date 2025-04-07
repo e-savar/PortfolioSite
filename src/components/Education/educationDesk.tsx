@@ -29,6 +29,7 @@ const papers = [
           <li>Founder, Scarlet Investment Group</li>
           <li>VP of Quant, Scarlet Investment Group</li>
           <li>TA, CSE 2331</li>
+          <li>Integrated Business and Engineering Honors Program</li>
         </ul>
       </>
     ),
