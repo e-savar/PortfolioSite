@@ -157,8 +157,9 @@
 
 .desk {
     margin-top: 3vh;
-    margin-left: 20vw;
     justify-content: center;
+    display: flex;
+    gap: 1rem;
 }
 .book {
     display: flex;
@@ -260,4 +261,5 @@
     .timeline {
         margin-left: 1rem;
     }
+
 }

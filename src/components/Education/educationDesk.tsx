@@ -21,7 +21,7 @@ const papers = [
   },
   {
     id: 'activities',
-    label: 'Activities',
+    label: 'Extracurriculars',
     details: (
       <>
         <h3>Extracurriculars</h3>
@@ -31,8 +31,8 @@ const papers = [
         </ul>
       </>
     ),
-    top: '40%',
-    left: '30%',
+    top: '50%',
+    left: '35%',
     rotate: '0deg',
   },
   {
@@ -40,7 +40,7 @@ const papers = [
     label: 'Relevant Courses',
     details: (
       <>
-        <h3>Coursework</h3>
+        <h3>Relevant Courses</h3>
         <ul>
           <li>Algorithms</li>
           <li>Operating Systems</li>
