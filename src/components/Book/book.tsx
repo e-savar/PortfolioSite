@@ -117,18 +117,21 @@ export const Book: React.FC = () => {
       title: '',
       dates: '',
       descriptions: [],
+      customStyles: 'cover',
     },
     {
-      company: 'Company B',
-      title: 'Project Y',
-      dates: 'Mar 2022 - Nov 2022',
+      company: 'JPMorganChase',
+      title: 'Software Engineer Intern',
+      dates: 'June 2025 - Present',
       descriptions: ['Collaborated with stakeholders', 'Improved user interface', 'Optimized performance'],
+      customStyles: 'regularPage'
     },
     {
       company: 'Company C',
       title: 'Project Z',
       dates: 'Jun 2023 - Present',
       descriptions: ['Focused on scalability', 'Implemented new features', 'Increased revenue'],
+      customStyles: 'regularPage'
     },
   ];
 
@@ -142,7 +145,7 @@ export const Book: React.FC = () => {
           <div
             key={i}
             ref={(el) => (pagesRef.current[i] = el)}
-            className={styles.paper}
+            className={`${styles.paper} ${styles[data.customStyles]}`}
             style={{ zIndex: NUM_PAGES - i }}
           >
             <div
@@ -157,7 +160,7 @@ export const Book: React.FC = () => {
               className={styles.back}
               onClick={() => handlePageClick(i, 'back')}
             >
-              <div className={styles.content}>Back {i + 1}</div>
+              <div className={styles.content}></div>
             </div>
           </div>
         ))}

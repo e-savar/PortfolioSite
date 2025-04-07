@@ -39,7 +39,6 @@
     border-radius: 10px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
-
   }
   
   .front {
@@ -53,27 +52,7 @@
   .paper.flipped {
     transform: rotateY(-180deg);
   }
-  
-  .content {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .pageContent h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .pageContent h3 {
-    font-size: 18px;
-    margin-bottom: 5px;
-  }
-  
-  .pageContent p {
-    font-size: 14px;
-    margin-bottom: 15px;
-  }
-  
+
   .descriptionList {
     list-style-type: disc;
     padding-left: 20px;
@@ -85,3 +64,23 @@
     margin-bottom: 5px;
   }
   
+  
+  .cover {
+    font-weight: 600;
+    color: #363636;
+  }
+  .cover:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    z-index: 10; /* number of pages + 1 */
+    left: -6px;
+    height: 99%;
+    width: 20px;
+    background-size: 9px 12px;
+    background-image: -webkit-radial-gradient(40% 5%, circle, transparent 70%, #363636 20%);
+    background-image: -moz-radial-gradient(40% 5%, circle, transparent 70%, #363636 20%);
+    background-image: -ms-radial-gradient(40% 5%, circle, transparent 70%, #363636 20%);
+    background-image: -o-radial-gradient(40% 5%, circle, transparent 70%, #363636 20%);
+    background-image: radial-gradient(circle at 40% 5%, transparent 70%, #363636 20%);
+  }

@@ -6,14 +6,15 @@ interface PageProps {
   title: string;
   dates: string;
   descriptions: string[];
+  customStyle?: string;
 }
 
-const Page: React.FC<PageProps> = ({ company, title, dates, descriptions }) => {
+const Page: React.FC<PageProps> = ({ company, title, dates, descriptions, customStyle = '' }) => {
   return (
-    <div className={styles.pageContent}>
-      <h2>{title}</h2>
-      <h3>{company}</h3>
-      <p>{dates}</p>
+    <div className={`${styles.pageContent} ${customStyle ? styles[customStyle] : ''}`}>
+      <div className={styles.company}><strong>{company}</strong></div> 
+      <div className={styles.title}>{title}</div>
+      <div className={styles.dates}>{dates}</div>
       <ul className={styles.descriptionList}>
         {descriptions.map((desc, index) => (
           <li key={index} className={styles.descriptionItem}>
