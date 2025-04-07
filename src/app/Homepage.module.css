@@ -155,8 +155,11 @@
     text-align: center;
 }
 
-.timeline {
-    margin-top: 7vh;
+.desk {
+    margin-top: 3vh;
+    justify-content: center;
+    display: flex;
+    gap: 1rem;
 }
 .book {
     display: flex;
@@ -258,4 +261,5 @@
     .timeline {
         margin-left: 1rem;
     }
+
 }

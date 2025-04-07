@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Book } from '../components/Book/book';
+import EducationDesk from "../components/Education/educationDesk";
 import { Experience } from '../components/Experience/experience';
 import styles from './Homepage.module.css';
 
@@ -47,15 +48,8 @@ export default function Home() {
             Education
           </div>
         </div>
-        <div className={styles.timeline}>
-          <Experience
-              company="The Ohio State University"
-              title="Honors Bachelor of Science"
-              dates="August 2022 - May 2026"
-              descriptions={["Major: Computer Science Engineering", "Double Major: Mathematics"]}
-            />
-          
-          
+        <div className={styles.desk}>
+          <EducationDesk />
         </div>
       </div>
       <div className={styles.gap}>
