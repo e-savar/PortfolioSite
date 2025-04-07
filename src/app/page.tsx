@@ -43,26 +43,30 @@ export default function Home() {
       <div className={styles.gap}>
       </div>
       <div className ={styles.experiences} id="education">
-        <div className={styles.headerBoard}>
+        <div className={[styles.headerBoard, styles.block].join(" ")}>
           <div className={styles.experienceTitle}>
             Education
           </div>
         </div>
-        <div className={styles.desk}>
+        <div className={[styles.desk, styles.block].join(" ")}>
           <EducationDesk />
         </div>
       </div>
       <div className={styles.gap}>
       </div>
-      <div className ={styles.experiences} id="experiences"><div className={styles.headerBoard}>
+      <div className ={[styles.experiences, styles.block].join(" ")} id="experiences"><div className={styles.headerBoard}>
           <div className={styles.experienceTitle}>
             Experiences
           </div>
-        </div><div className={styles.book}><Book /></div></div>
+      </div>
+      <div className={[styles.book, styles.block].join(" ")}>
+        <Book />
+      </div>
+      </div>
       <div className={styles.gap}>
       </div>
       <div className ={styles.experiences} id="projects">
-        <div className={styles.headerBoard}>
+        <div className={[styles.headerBoard, styles.block].join(" ")}>
           <div className={styles.experienceTitle}>
             Projects
           </div>
