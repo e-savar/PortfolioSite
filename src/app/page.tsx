@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Book } from '../components/Book/book';
 import { Experience } from '../components/Experience/experience';
 import styles from './Homepage.module.css';
 
@@ -53,6 +54,8 @@ export default function Home() {
               dates="August 2022 - May 2026"
               descriptions={["Major: Computer Science Engineering", "Double Major: Mathematics"]}
             />
+          <div className={styles.book}><Book /></div>
+          
         </div>
       </div>
       <div className={styles.gap}>

@@ -158,6 +158,12 @@
 .timeline {
     margin-top: 7vh;
 }
+.book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
 
 /* Animation for flying in from the right */
 @keyframes flyInFromTop {
