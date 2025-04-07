@@ -18,7 +18,7 @@ export default function Home() {
         </div>
         <div className={styles.buttonsGreeting}>
           <div className={styles.greeting}>
-            Hi, my name is Ethan Savar
+            Hi, my name is Ethan Savar 
           </div>
           <div className={styles.buttons}>
             <a href="Savar_Ethan_Resume (14).pdf" download="EthanSavarResume.pdf" className={styles.cvButton}>
