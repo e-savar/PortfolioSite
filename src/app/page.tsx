@@ -18,7 +18,7 @@ export default function Home() {
         </div>
         <div className={styles.buttonsGreeting}>
           <div className={styles.greeting}>
-            Hi, my name is Ethan
+            Hi, my name is Ethan Savar
           </div>
           <div className={styles.buttons}>
             <a href="Savar_Ethan_Resume (14).pdf" download="EthanSavarResume.pdf" className={styles.cvButton}>
@@ -36,7 +36,7 @@ export default function Home() {
       <div className={styles.bottom}>
         <div className={styles.aboutMe}>
           <div className={styles.aboutMeTitle}>
-            Welcome! I am Ethan, a Software Engineer and Researcher who loves learning.
+            Welcome! I am Ethan, a Software Engineer and Researcher with a passion for mathematics. I have contributed to a wide range of projects ranging from full stack development, to data science and machine learning. If you're looking for a motivated contributor to your team, please feel free to reach out!
           </div>
         </div>
       </div>
