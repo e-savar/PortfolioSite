@@ -48,9 +48,8 @@ export default function Home() {
             Education
           </div>
         </div>
-        <div className={styles.timeline}>
+        <div className={styles.desk}>
           <EducationDesk />
-          
         </div>
       </div>
       <div className={styles.gap}>

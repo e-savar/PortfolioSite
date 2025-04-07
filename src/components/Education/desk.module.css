@@ -1,150 +1,97 @@
-.deskContainer {
-    width: 100%;
-    height: 90vh;
-    position: relative;
-    overflow: hidden;
-    padding: 2rem;
-    box-sizing: border-box;
-  }
-  
-  .deskSurface {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  
-  
-  
-  .paperLabel {
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #363636;
-  }
-  
-  /* Modal Overlay */
-  .modalOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.45);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-  }
-  
-  /* Modal Content */
-  .modalContent {
-    background-color: #FDFDFD;
-    border: 2px solid #363636;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 2rem;
-    border-radius: 6px;
-    width: 80%;
-    max-width: 500px;
-    position: relative;
-  }
-  
-  .closeButton {
-    position: absolute;
-    top: 10px;
-    right: 14px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #363636;
-    cursor: pointer;
-  }
-  
+.deskWrapper {
+  position: relative;
+  width: 60vw; /* Increase desk width to be fully visible */
+  height: 50vh; /* Increase desk height */
+  perspective: 1000px; /* 3D effect perspective */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* centers the desk */
+}
 
-  .deskContainer {
-    width: 100%;
-    height: 90vh;
-    position: relative;
-    padding: 2rem;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-  
-  .paperItem {
-    position: absolute;
-    width: 220px;
-    min-height: 160px;
-    background-color: #FDFDFD;
-    border: 2px solid #363636;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
-    padding: 1rem;
-    font-size: 0.9rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    transition: transform 0.2s ease;
-    border-radius: 4px;
-  }
-  .paperItem:hover {
-    transform: rotate(-1deg) scale(1.03);
-    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Diploma - certificate look */
-  .diploma {
-    text-align: center;
-    border: 3px double #363636;
-    background: linear-gradient(to bottom, #FDFDFD, #f9f9f9);
-  }
-  
-  .diplomaTitle {
-    font-size: 1.2rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-  }
-  
-  .diplomaText {
-    font-size: 1rem;
-  }
-  
-  .diplomaSchool {
-    margin-top: 0.5rem;
-    font-style: italic;
-  }
-  
-  .diplomaYear {
-    font-size: 0.85rem;
-    margin-top: 0.25rem;
-  }
-  
-  /* Notebook - lined paper */
-  .notebook {
-    background-image: repeating-linear-gradient(
-      to bottom,
-      #fdfdfd,
-      #fdfdfd 20px,
-      #eaeaea 21px
-    );
-    padding-left: 1.2rem;
-    position: relative;
-  }
-  
-  .notebook::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 10px;
-    bottom: 0;
-    width: 2px;
-    background-color: #ccc;
-  }
-  
-  /* Flyer - more playful */
-  .flyer {
-    background: #fffdfd;
-    border: 2px dashed #363636;
-    font-size: 0.85rem;
-    color: #222;
-  }
-  
+.deskContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: rotateX(10deg);
+  transform-style: preserve-3d;
+  background: #c58f55;
+  border: 7px solid #363636; /* uniform border */
+  box-shadow: 0px 7px 7px black;
+}
+
+.paperItem {
+  position: absolute;
+  width: 220px;
+  min-height: 130px;
+  background-color: #fdfdfd;
+  border: 2px solid #363636; /* uniform border */
+  box-shadow: 6px 10px 20px rgba(0, 0, 0, 0.25);
+  padding: 0.75rem;
+  font-size: 18px;
+  border-radius: 10px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  color: #363636;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transform: rotateX(2deg) rotateZ(-5deg); /* slight rotation to feel scattered */
+  background-image: linear-gradient(to bottom, #f0f0f0 10%, #fff 10%, #fff 90%, #f0f0f0 90%);
+  background-size: 100% 10px; /* create lined paper effect */
+  background-repeat: repeat-y;
+}
+
+.paperItem h3 {
+  font-weight: 600;
+}
+.paperItem p {
+  font-size: 14px;
+}
+.paperItem ul {
+  list-style-type: disc; /* Bullet points */
+  margin-left: 20px; /* Add indentation */
+}
+
+.paperItem li {
+  font-size: 14px;
+  margin-bottom: 3px; /* Space between items */
+  text-align: left;
+}
+
+
+.paperItem:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 6px 8px 16px rgba(0, 0, 0, 0.25);
+  z-index: 5;
+}
+
+.active {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.3);
+  background-color: #fefefe;
+  border: 3px solid #363636;
+  box-shadow: 12px 16px 24px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  width: 320px;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 100;
+  display: block;
+  filter: none; /* Removed blur from active card */
+}
+
+.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(240, 240, 240, 0.4);
+  backdrop-filter: blur(10px); /* only blur the background of the active card */
+  z-index: -1;
+}

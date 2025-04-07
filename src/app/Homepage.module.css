@@ -155,8 +155,10 @@
     text-align: center;
 }
 
-.timeline {
-    margin-top: 7vh;
+.desk {
+    margin-top: 3vh;
+    margin-left: 20vw;
+    justify-content: center;
 }
 .book {
     display: flex;

@@ -1,45 +1,118 @@
 'use client';
-import React, { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './desk.module.css';
 
-const items = [
-  { name: 'diploma', label: 'Diploma', top: '15%', left: '10%', rotate: '-4deg' },
-  { name: 'notebook', label: 'Notebook', top: '45%', left: '35%', rotate: '3deg' },
-  { name: 'flyer', label: 'Club Flyer', top: '30%', left: '65%', rotate: '-2deg' },
-];
-export default function EducationDesk() {
-  return (
-    <div className={styles.deskContainer}>
-      <div className={`${styles.paperItem} ${styles.diploma}`} style={{ top: '10%', left: '8%', transform: 'rotate(-4deg)' }}>
-        <h2 className={styles.diplomaTitle}>Degree</h2>
-        <p className={styles.diplomaText}>Bachelor of Science</p>
-        <p className={styles.diplomaText}>Computer Science</p>
-        <p className={styles.diplomaSchool}>The Ohio State University</p>
-        <p className={styles.diplomaYear}>Expected May 2026</p>
-      </div>
-
-      <div className={`${styles.paperItem} ${styles.notebook}`} style={{ top: '40%', left: '30%', transform: 'rotate(2deg)' }}>
-        <h3><strong>Relevant Coursework</strong></h3>
+const papers = [
+  {
+    id: 'degree',
+    label: 'Degree',
+    details: (
+      <>
+        <h3>Bachelor of Science</h3>
+        <p>The Ohio State University</p>
+        <p>Computer Science Engineering</p>
+        <p>Double Major in Mathematics</p>
+        <p>Expected May 2026</p>
+      </>
+    ),
+    top: '12%',
+    left: '10%',
+    rotate: '0deg',
+  },
+  {
+    id: 'activities',
+    label: 'Activities',
+    details: (
+      <>
+        <h3>Extracurriculars</h3>
         <ul>
-          <li>Algorithms & Data Structures</li>
+          <li>VP, Scarlet Investment Group</li>
+          <li>TA, CSE 2331</li>
+        </ul>
+      </>
+    ),
+    top: '40%',
+    left: '30%',
+    rotate: '0deg',
+  },
+  {
+    id: 'courses',
+    label: 'Relevant Courses',
+    details: (
+      <>
+        <h3>Coursework</h3>
+        <ul>
+          <li>Algorithms</li>
           <li>Operating Systems</li>
           <li>Machine Learning</li>
         </ul>
-      </div>
-      <div className={`${styles.paperItem} ${styles.diploma}`} style={{ top: '10%', left: '51%', transform: 'rotate(6deg)' }}>
-        <h2 className={styles.diplomaTitle}>Dual Degree</h2>
-        <p className={styles.diplomaText}>Bachelor of Science</p>
-        <p className={styles.diplomaText}>Computer Science</p>
-        <p className={styles.diplomaSchool}>The Ohio State University</p>
-        <p className={styles.diplomaYear}>Expected May 2026</p>
-      </div>
+      </>
+    ),
+    top: '20%',
+    left: '65%',
+    rotate: '0deg',
+  },
+];
 
-      <div className={`${styles.paperItem} ${styles.flyer}`} style={{ top: '25%', left: '73%', transform: 'rotate(-2deg)' }}>
-        <h3><strong>Extracurriculars</strong></h3>
-        <ul>
-          <li>Founder/VP of Quant, Scarlet Investment Group</li>
-          <li>TA, CSE 2331</li>
-        </ul>
+export default function EducationDesk() {
+  const [activePaper, setActivePaper] = useState<string | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = (e: MouseEvent) => {
+    if (
+      containerRef.current &&
+      !containerRef.current.contains(e.target as Node)
+    ) {
+      setActivePaper(null);
+    }
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setActivePaper(null);
+    };
+
+    if (activePaper) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activePaper]);
+
+  return (
+    <div className={styles.deskWrapper}>
+      {activePaper && <div className={styles.backdrop} />}
+      <div className={styles.deskContainer} ref={containerRef}>
+        {papers.map((paper) => {
+          const isActive = activePaper === paper.id;
+          return (
+            <div
+              key={paper.id}
+              className={`${styles.paperItem} ${isActive ? styles.active : ''}`}
+              style={{
+                top: isActive ? '50%' : paper.top,
+                left: isActive ? '50%' : paper.left,
+                transform: isActive
+                  ? 'translate(-50%, -50%) scale(1.3)'
+                  : `rotate(${paper.rotate})`,
+                zIndex: isActive ? 100 : 1,
+                fontWeight: isActive ? '400' : '600',
+              }}
+              onClick={() =>
+                setActivePaper(isActive ? null : paper.id)
+              }
+            >
+              {isActive ? paper.details : paper.label}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
