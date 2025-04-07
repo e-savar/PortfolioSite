@@ -1,63 +1,144 @@
 'use client';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import Page from '../Page/page';
 import styles from './book.module.css';
 
 const NUM_PAGES = 3;
 
 export const Book: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false); // for animation delay
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [bookPosition, setBookPosition] = useState(0); // Track book position (left or right)
+  const [isSliding, setIsSliding] = useState(false); // Flag to track if sliding is in progress
   const pagesRef = useRef<Array<HTMLDivElement | null>>([]);
-
+  
   const handlePageClick = (pageIndex: number, side: 'front' | 'back') => {
-    if (isAnimating) return; // prevents flipping while animation is in progress
+    if (isAnimating || isSliding) return; // no clicking while flipping or sliding
 
-    if (side === 'front') {
+    if (pageIndex === 0 && side === 'front') {
+      // first page front - slide right
+      slideBook('right');
       goNext(pageIndex);
-    } else if (side === 'back') {
+    } else if (pageIndex === NUM_PAGES - 1 && side === 'front') {
+      // last page front - slide to center position to make the back visible properly
+      slideBook('center');
+      goNext(pageIndex);
+    } else if (pageIndex === 0 && side === 'back') {
+      // first page back - slide left
+      slideBook('left');
       goBack(pageIndex);
+    } else if (pageIndex === NUM_PAGES - 1 && side === 'back') {
+      // last page back - slide to right
+      slideBook('right');
+      goBack(pageIndex);
+    } else {
+      // handle normally without sliding
+      if (side === 'front') {
+        goNext(pageIndex);
+      } else if (side === 'back') {
+        goBack(pageIndex);
+      }
     }
   };
 
   const goNext = (pageIndex: number) => {
-    if (currentPage < NUM_PAGES) {
-      setIsAnimating(true);
-      const page = pagesRef.current[pageIndex];
-      if (page) {
-        page.classList.add(styles.flipped);
-        // Delay z-index change until after flip animation completes
-        setTimeout(() => {
-          if (page) {
-            page.style.zIndex = "0";
-          }
-          setIsAnimating(false); // end
-        }, 1000); // delay = animation time
-      }
-      setCurrentPage((prev) => prev + 1);
+    setIsAnimating(true);
+    const page = pagesRef.current[pageIndex];
+    
+    if (page) {
+      page.classList.add(styles.flipped);
+      setTimeout(() => {
+        if (page) {
+          page.style.zIndex = '0';
+        }
+        setIsAnimating(false);
+      }, 1000); // duration
     }
+    
+    setCurrentPage(pageIndex + 1);
   };
 
   const goBack = (pageIndex: number) => {
-    if (currentPage > 0) {
-      setIsAnimating(true);
-      const page = pagesRef.current[pageIndex];
-      if (page) {
-        page.classList.remove(styles.flipped);
-        page.style.zIndex = `${NUM_PAGES - pageIndex}`;
-      }
-      setCurrentPage((prev) => prev - 1);
-
-      // delay
-      setTimeout(() => {
-        setIsAnimating(false);
-      }, 1000); // delay = animation time
+    setIsAnimating(true);
+    const page = pagesRef.current[pageIndex];
+    
+    if (page) {
+      page.classList.remove(styles.flipped);
+      page.style.zIndex = `${NUM_PAGES - pageIndex}`;
     }
+    
+    setCurrentPage(pageIndex);
+    
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 1000); // duration
   };
+
+  const slideBook = (direction: 'left' | 'right' | 'center') => {
+    if (isSliding) return;
+
+    setIsSliding(true);
+    
+    // position based on direction
+    let position = 0;
+    if (direction === 'right') {
+      position = 180;
+    } else if (direction === 'left') {
+      position = 0;
+    } else if (direction === 'center') {
+      position = 400;
+    }
+    
+    setBookPosition(position);
+
+    setTimeout(() => {
+      setIsSliding(false); 
+    }, 1000); // delay = animation
+  };
+
+  useEffect(() => {
+    pagesRef.current.forEach((page, index) => {
+      if (page) {
+        page.style.zIndex = `${NUM_PAGES - index}`;
+        
+        if (index < currentPage) {
+          page.classList.add(styles.flipped);
+        } else {
+          page.classList.remove(styles.flipped);
+        }
+      }
+    });
+  }, []);
+
+  // data
+  const pagesData = [
+    {
+      company: 'Book of Experiences',
+      title: '',
+      dates: '',
+      descriptions: [],
+    },
+    {
+      company: 'Company B',
+      title: 'Project Y',
+      dates: 'Mar 2022 - Nov 2022',
+      descriptions: ['Collaborated with stakeholders', 'Improved user interface', 'Optimized performance'],
+    },
+    {
+      company: 'Company C',
+      title: 'Project Z',
+      dates: 'Jun 2023 - Present',
+      descriptions: ['Focused on scalability', 'Implemented new features', 'Increased revenue'],
+    },
+  ];
 
   return (
     <div className={styles.container}>
-      <div className={styles.book}>
-        {[...Array(NUM_PAGES)].map((_, i) => (
+      <div
+        className={styles.book}
+        style={{ transform: `translateX(${bookPosition}px)` }}
+      >
+        {pagesData.map((data, i) => (
           <div
             key={i}
             ref={(el) => (pagesRef.current[i] = el)}
@@ -68,7 +149,9 @@ export const Book: React.FC = () => {
               className={styles.front}
               onClick={() => handlePageClick(i, 'front')}
             >
-              <div className={styles.content}>Front {i + 1}</div>
+              <div className={styles.content}>
+                <Page {...data} />
+              </div>
             </div>
             <div
               className={styles.back}
