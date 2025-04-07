@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Page from '../Page/page';
 import styles from './book.module.css';
 
-const NUM_PAGES = 3;
+const NUM_PAGES = 4;
 
 export const Book: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -123,14 +123,27 @@ export const Book: React.FC = () => {
       company: 'JPMorganChase',
       title: 'Software Engineer Intern',
       dates: 'June 2025 - Present',
-      descriptions: ['Collaborated with stakeholders', 'Improved user interface', 'Optimized performance'],
+      descriptions: [],
       customStyles: 'regularPage'
     },
     {
-      company: 'Company C',
-      title: 'Project Z',
-      dates: 'Jun 2023 - Present',
-      descriptions: ['Focused on scalability', 'Implemented new features', 'Increased revenue'],
+      company: 'Immuta',
+      title: 'Research Engineer/Scientist Intern',
+      dates: 'May 2024 - April 2025',
+      descriptions: ["Optimized sensitive data discovery services by leveraging finite automata theory in Python and through pattern improvement, leading to an improvement in data classification by 36\% and a decrease in error rate to less than 1\%",
+      "Developed a semantic similarity clustering model in PyTorch and matplotlib enabling hierarchical data matching",
+      "Built a service in Typescript to generate SQL for integration testing across Snowflake, Databricks, and Redshift",
+      "Created a copilot evaluation tool using Python to observe variability in subject capturing and generations",
+      "Used AWS Bedrock to create a generative AI synonym detection service as part of Immuta's policy copilot"],
+      customStyles: 'regularPage'
+    },
+    {
+      company: 'DataLab at Ohio State',
+      title: 'Undergraduate Researcher',
+      dates: 'October 2023 - January 2025',
+      descriptions: ["Researched applications of stochastic differential equations on diffusion models for video and image generation",
+      "Developed uncertainty calibration technique applying transformations to LLM logit outputs for determining accuracy",
+      "Created an engine leveraging OpenCV, Python, and CLIP to analyze videos and generate scene descriptions to enable searchable indexing of relevant video segments based on text queries"],
       customStyles: 'regularPage'
     },
   ];
@@ -160,7 +173,7 @@ export const Book: React.FC = () => {
               className={styles.back}
               onClick={() => handlePageClick(i, 'back')}
             >
-              <div className={styles.content}></div>
+              <div className={styles.content}>Click to go Back</div>
             </div>
           </div>
         ))}
