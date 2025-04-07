@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Book } from '../components/Book/book';
 import { Experience } from '../components/Experience/experience';
 import styles from './Homepage.module.css';
 
@@ -53,66 +54,26 @@ export default function Home() {
               dates="August 2022 - May 2026"
               descriptions={["Major: Computer Science Engineering", "Double Major: Mathematics"]}
             />
+          
+          
         </div>
       </div>
       <div className={styles.gap}>
       </div>
-      <div className ={styles.experiences} id="experiences">
-        <div className={styles.headerBoard}>
+      <div className ={styles.experiences} id="experiences"><div className={styles.headerBoard}>
           <div className={styles.experienceTitle}>
             Experiences
           </div>
+        </div><div className={styles.book}><Book /></div></div>
+      <div className={styles.gap}>
+      </div>
+      <div className ={styles.experiences} id="projects">
+        <div className={styles.headerBoard}>
+          <div className={styles.experienceTitle}>
+            Projects
+          </div>
         </div>
         <div className={styles.timeline}>
-          <Experience
-            company="JPMorganChase"
-            title="Incoming Software Engineer Intern"
-            dates="May 2025 - Present"
-            descriptions={[]}
-          />
-          <Experience
-            company="Department of CSE at Ohio State"
-            title="Undergraduate Teaching Assistant"
-            dates="August 2024 - Present"
-            descriptions={[
-              "Selected as an undergraduate teaching assistant for CSE 2331: Foundations II - Data Structures and Algorithms",
-              "Led a team of 3 TA's across 4 course sections consisting of 200+ students to grade and design rubrics for homework",
-            ]}
-          />
-          <Experience
-            company="Immuta"
-            title="Research Engineer/Scientist Intern"
-            dates="May 2024 - April 2025"
-            descriptions={[
-              "Optimized sensitive data discovery services by leveraging finite automata theory in Python and through pattern improvement, leading to an improvement in data classification by 36\% and a decrease in error rate to less than 1\%",
-              "Developed a semantic similarity clustering model in PyTorch and matplotlib enabling hierarchical data matching",
-              "Built a service in Typescript to generate SQL for integration testing across Snowflake, Databricks, and Redshift",
-              "Created a copilot evaluation tool using Python to observe variability in subject capturing and generations",
-              "Used AWS Bedrock to create a generative AI synonym detection service as part of Immuta's policy copilot"
-            ]}
-          />
-          <Experience
-            company="DataLab at Ohio State University"
-            title="Undergraduate Research Assistant"
-            dates="August 2023 - January 2025"
-            descriptions={[
-              "Researched applications of stochastic differential equations on diffusion models for video and image generation",
-              "Developed uncertainty calibration technique applying transformations to LLM logit outputs for determining accuracy",
-              "Created an engine leveraging OpenCV, Python, and CLIP to analyze videos and generate scene descriptions to enable searchable indexing of relevant video segments based on text queries"
-            ]}
-          />
-          <Experience
-            company="Web Hosting at Ohio State University"
-            title="Software Engineer Intern"
-            dates="May 2023 - December 2023"
-            descriptions={[
-              "Built a full-stack website administration platform using Vue and PHP to orchestrate 300+ managed websites",
-              "Optimized API infrastructure decreasing query and load times for 10+ API calls from minutes to seconds",
-              "Implemented Kubernetes RBAC policies to streamline platform security and decrease website onboarding time"
-            ]}
-          />
-          
-
         </div>
       </div>
       <div className={styles.gap}>
