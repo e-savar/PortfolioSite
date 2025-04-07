@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Page from '../Page/page';
 import styles from './book.module.css';
 
-const NUM_PAGES = 4;
+const NUM_PAGES = 5;
 
 export const Book: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -144,6 +144,15 @@ export const Book: React.FC = () => {
       descriptions: ["Researched applications of stochastic differential equations on diffusion models for video and image generation",
       "Developed uncertainty calibration technique applying transformations to LLM logit outputs for determining accuracy",
       "Created an engine leveraging OpenCV, Python, and CLIP to analyze videos and generate scene descriptions to enable searchable indexing of relevant video segments based on text queries"],
+      customStyles: 'regularPage'
+    },
+    {
+      company: 'Office of Technology and Digital Innovation at Ohio State',
+      title: 'Software Engineer Intern',
+      dates: 'May 2023 - December 2023',
+      descriptions: ["Built a full-stack website administration platform using Vue and PHP to orchestrate 300+ managed websites",
+      "Optimized API infrastructure decreasing query and load times for 10+ API calls from minutes to seconds",
+      "Implemented Kubernetes RBAC policies to streamline platform security and decrease website onboarding time"],
       customStyles: 'regularPage'
     },
   ];

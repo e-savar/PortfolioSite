@@ -21,12 +21,13 @@ const papers = [
   },
   {
     id: 'activities',
-    label: 'Extracurriculars',
+    label: 'Leadership',
     details: (
       <>
-        <h3>Extracurriculars</h3>
+        <h3>Leadership</h3>
         <ul>
-          <li>VP, Scarlet Investment Group</li>
+          <li>Founder, Scarlet Investment Group</li>
+          <li>VP of Quant, Scarlet Investment Group</li>
           <li>TA, CSE 2331</li>
         </ul>
       </>
@@ -42,9 +43,10 @@ const papers = [
       <>
         <h3>Relevant Courses</h3>
         <ul>
-          <li>Algorithms</li>
+          <li>Data Structures and Algorithms</li>
           <li>Operating Systems</li>
           <li>Machine Learning</li>
+          <li>Artificial Intelligence</li>
         </ul>
       </>
     ),
