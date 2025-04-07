@@ -6,7 +6,7 @@ import styles from './Homepage.module.css';
 
 export default function Home() {
   return (
-    <div className={styles.twoColumns}>
+    <div>
       <div className={styles.main}>
         <div className={styles.face}>
           <Image className={styles.faceImage}

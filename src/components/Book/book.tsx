@@ -115,7 +115,7 @@ export const Book: React.FC = () => {
     {
       company: 'Book of Experiences',
       title: '',
-      dates: '',
+      dates: 'By Ethan Savar',
       descriptions: [],
       customStyles: 'cover',
     },
