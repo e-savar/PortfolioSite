@@ -147,7 +147,6 @@ export const Book: React.FC = () => {
       customStyles: 'regularPage'
     },
   ];
-
   return (
     <div className={styles.container}>
       <div
