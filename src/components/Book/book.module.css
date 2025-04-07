@@ -14,7 +14,11 @@
     justify-content: center;
     transition: transform 1s ease-in-out;
   }
-  
+  .cover:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 16px 18px 26px rgba(0, 0, 0, 0.35);
+    z-index: 5;
+  }
   .paper {
     position: absolute;
     width: 100%;
