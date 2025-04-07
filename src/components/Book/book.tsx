@@ -10,7 +10,7 @@ export const Book: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [bookPosition, setBookPosition] = useState(0); // Track book position (left or right)
   const [isSliding, setIsSliding] = useState(false); // Flag to track if sliding is in progress
-  const pagesRef = useRef<Array<HTMLDivElement | null>>([]);
+  const pagesRef = useRef<HTMLDivElement[]>([]);
   
   const handlePageClick = (pageIndex: number, side: 'front' | 'back') => {
     if (isAnimating || isSliding) return; // no clicking while flipping or sliding
@@ -157,7 +157,10 @@ export const Book: React.FC = () => {
         {pagesData.map((data, i) => (
           <div
             key={i}
-            ref={(el) => (pagesRef.current[i] = el)}
+            ref={(el) => {
+              if (el) pagesRef.current[i] = el;
+            }}
+            
             className={`${styles.paper} ${styles[data.customStyles]}`}
             style={{ zIndex: NUM_PAGES - i }}
           >
