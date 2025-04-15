@@ -21,7 +21,7 @@ export default function Home() {
             Hi, my name is Ethan Savar 
           </div>
           <div className={styles.buttons}>
-            <a href="EthanSavarResume.pdf" download="EthanSavarResume.pdf" className={styles.cvButton}>
+            <a href="Savar_Ethan_Resume.pdf" download="EthanSavarResume.pdf" className={styles.cvButton}>
               Download CV
             </a>
             <a href="https://www.linkedin.com/in/ethan-savar/" target="_blank" rel="noopener noreferrer" className={styles.linkedinButton}>
